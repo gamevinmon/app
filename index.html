@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GameVinMon – Swap MON/VIN & Play Dice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="GameVinMon – Swap MON ↔ VIN at 1:1 on Monad and play on-chain Dice with VIN. 100M VIN max supply. No owner. No withdrawals."
+  />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="logo64.png" />
+  <link rel="apple-touch-icon" href="logo128.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <img src="vinlogo.png" alt="GameVinMon Logo" class="nav-logo" />
+        <div class="nav-title-group">
+          <div class="nav-title">GameVinMon</div>
+          <div class="nav-subtitle">Got MON? Get VIN.</div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="nav-network" id="networkStatus">
+          Network: <span id="networkName">Not connected</span>
+        </div>
+        <button id="connectButton" class="btn primary-btn">
+          Connect Wallet
+        </button>
+      </div>
+    </header>
+
+    <!-- Global Info Bar -->
+    <section class="info-bar">
+      <div class="info-item">
+        <span class="info-label">VIN Price (est.):</span>
+        <span class="info-value" id="vinPriceUsd">– USD</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">VIN Max Supply:</span>
+        <span class="info-value">100,000,000 VIN</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Swap Rate:</span>
+        <span class="info-value">1 VIN = 1 MON</span>
+      </div>
+    </section>
+
+    <main>
+      <!-- ====================== HOME VIEW ====================== -->
+      <section id="home-view" class="view active-view">
+        <div class="hero">
+          <div class="hero-text">
+            <h1>Swap MON → VIN & Play On-Chain Dice</h1>
+            <p class="hero-lead">
+              VIN is a fixed-supply token (100M max) on Monad.  
+              MON can always be swapped 1:1 into VIN while liquidity lasts.
+              VIN used in Dice is locked forever inside the smart contract.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn primary-btn" data-view="swap">
+                Swap MON ↔ VIN
+              </button>
+              <button class="btn secondary-btn" data-view="dice">
+                Play VIN Dice
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <h2>Why MON holders get VIN</h2>
+            <ul class="hero-list">
+              <li>1 VIN = 1 MON via immutable smart-contract swap.</li>
+              <li>VIN used in Dice is locked; nobody can withdraw it.</li>
+              <li>No owner, no dev keys, no withdrawals — code = law.</li>
+              <li>Only 50M VIN are available in pools for swaps and games.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- VIN Token Info -->
+          <section class="card">
+            <h3>VIN Token on Monad</h3>
+            <p class="mono">
+              Contract:&nbsp;
+              <span id="vinAddress">
+                0x09166bFA4a40BAbC19CCCEc6A6154d9c058098EC
+              </span>
+            </p>
+
+            <p>
+              <a
+                href="https://monadvision.com/token/0x09166bFA4a40BAbC19CCCEc6A6154d9c058098EC"
+                class="explorer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🔗 View Token on MonadVision
+              </a>
+            </p>
+
+            <p>Standard ERC-20 token deployed on Monad.</p>
+
+            <div class="card-actions">
+              <button id="copyVinAddress" class="btn ghost-btn">
+                Copy VIN address
+              </button>
+              <button id="addVinToMetamask" class="btn ghost-btn">
+                Add VIN to MetaMask
+              </button>
+            </div>
+          </section>
+
+          <!-- Core Contracts -->
+          <section class="card">
+            <h3>Core Smart Contracts</h3>
+            <ul class="contract-list">
+              <li>
+                <div class="contract-label">Swap (VIN ↔ MON)</div>
+                <div class="mono">
+                  0xCdce3485752E7a7D4323f899FEe152D9F27e890B
+                </div>
+                <a
+                  href="https://monadvision.com/address/0xCdce3485752E7a7D4323f899FEe152D9F27e890B"
+                  class="explorer-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🔗 View Swap Contract
+                </a>
+              </li>
+
+              <li>
+                <div class="contract-label">VIN Dice (Even/Odd)</div>
+                <div class="mono">
+                  0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f
+                </div>
+                <a
+                  href="https://monadvision.com/address/0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f"
+                  class="explorer-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🔗 View Dice Contract
+                </a>
+              </li>
+            </ul>
+
+            <p class="small-note">
+              All contracts are immutable and verified on-chain.  
+              No owner functions, no emergency withdraw.
+            </p>
+          </section>
+        </div>
+
+        <!-- How It Works -->
+        <section class="card card-full">
+          <h3>How GameVinMon Works</h3>
+          <ol class="steps-list">
+            <li>Connect your wallet on the Monad network.</li>
+            <li>Swap MON → VIN at 1:1 using the Swap smart contract.</li>
+            <li>Use VIN to play the on-chain Dice game (Even/Odd, 0.01 VIN min bet).</li>
+            <li>
+              VIN and MON moved into contracts stay locked unless won back.
+              Circulating supply decreases over time.
+            </li>
+          </ol>
+        </section>
+      </section>
+
+      <!-- ====================== SWAP VIEW ====================== -->
+      <section id="swap-view" class="view hidden-view">
+        <div class="view-header">
+          <button class="back-link" data-view="home">← Back to Home</button>
+          <h2>Swap MON ↔ VIN</h2>
+          <p>
+            Fixed-rate, 1:1 swap between MON (native) and VIN (ERC-20) on Monad.
+            All liquidity is held by the immutable smart contract.
+          </p>
+        </div>
+
+        <div class="swap-layout">
+          <section class="card swap-card">
+            <div class="swap-row">
+              <label class="swap-label">From</label>
+              <div class="token-row">
+                <img
+                  id="fromTokenIcon"
+                  src="mon24.png"
+                  alt="From token"
+                  class="token-icon"
+                />
+                <span id="fromTokenSymbol">MON</span>
+              </div>
+              <input
+                id="fromAmount"
+                type="number"
+                min="0"
+                step="0.000000000000000001"
+                placeholder="0.0"
+                class="swap-input"
+              />
+              <button id="maxFromButton" class="btn tiny-btn">MAX</button>
+              <div class="balance-text">
+                Balance: <span id="fromBalance">–</span>
+              </div>
+            </div>
+
+            <div class="swap-middle">
+              <button
+                id="switchDirection"
+                class="swap-switch-btn"
+                title="Switch direction"
+              >
+                ⇅
+              </button>
+              <div class="rate-text" id="swapRateText">
+                1 VIN = 1 MON
+              </div>
+            </div>
+
+            <div class="swap-row">
+              <label class="swap-label">To</label>
+              <div class="token-row">
+                <img
+                  id="toTokenIcon"
+                  src="vin24.png"
+                  alt="To token"
+                  class="token-icon"
+                />
+                <span id="toTokenSymbol">VIN</span>
+              </div>
+              <input
+                id="toAmount"
+                type="number"
+                min="0"
+                step="0.000000000000000001"
+                placeholder="0.0"
+                class="swap-input"
+                disabled
+              />
+              <div class="balance-text">
+                Balance: <span id="toBalance">–</span>
+              </div>
+            </div>
+
+            <div class="swap-actions">
+              <button id="approveButton" class="btn secondary-btn hidden">
+                Approve VIN
+              </button>
+              <button id="swapButton" class="btn primary-btn">
+                Swap
+              </button>
+            </div>
+
+            <div class="status-text" id="swapStatus"></div>
+          </section>
+
+          <section class="card">
+            <h3>Pool Reserves (Contract)</h3>
+            <p class="balance-line">
+              <img src="mon24.png" alt="MON" class="token-icon" />
+              <span>MON in pool:</span>
+              <span class="mono" id="monReserve">–</span>
+            </p>
+            <p class="balance-line">
+              <img src="vin24.png" alt="VIN" class="token-icon" />
+              <span>VIN in pool:</span>
+              <span class="mono" id="vinReserve">–</span>
+            </p>
+            <p class="small-note">
+              When VIN in the pool is exhausted, MON → VIN swaps will stop
+              automatically, but VIN can still be swapped back to MON.
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <!-- ====================== DICE VIEW ====================== -->
+      <section id="dice-view" class="view hidden-view">
+        <div class="view-header">
+          <button class="back-link" data-view="home">← Back to Home</button>
+          <h2>VIN Dice – Even / Odd</h2>
+          <p>
+            A simple on-chain Dice game using VIN.  
+            Minimum bet: 0.01 VIN. No one can withdraw VIN from the Dice contract;
+            only winners receive payouts.
+          </p>
+        </div>
+
+        <div class="dice-layout">
+          <section class="card dice-card">
+            <div class="dice-top">
+              <div class="dice-balance">
+                <span>Your VIN balance:</span>
+                <span class="mono" id="vinBalance">–</span>
+              </div>
+              <div class="dice-balance">
+                <span>Dice bankroll (contract):</span>
+                <span class="mono" id="diceBankroll">–</span>
+              </div>
+            </div>
+
+            <div class="dice-input-row">
+              <label for="diceAmount" class="swap-label">
+                Bet amount (VIN)
+              </label>
+              <input
+                id="diceAmount"
+                type="number"
+                min="0.01"
+                step="0.000000000000000001"
+                placeholder="0.01"
+                class="swap-input"
+              />
+              <div class="balance-text">
+                Min bet: <span id="minBetText">0.01 VIN</span>
+              </div>
+            </div>
+
+            <div class="dice-buttons">
+              <button id="betEvenButton" class="btn primary-btn">
+                Bet EVEN
+              </button>
+              <button id="betOddButton" class="btn secondary-btn">
+                Bet ODD
+              </button>
+            </div>
+
+            <div class="status-text" id="diceStatus"></div>
+
+            <div class="dice-result" id="diceResultPanel">
+              <h3>Last Round</h3>
+              <p id="diceLastResult">No games played yet.</p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h3>How Dice Works</h3>
+            <ol class="steps-list">
+              <li>Approve VIN for the Dice contract (handled automatically).</li>
+              <li>Choose your bet amount (≥ 0.01 VIN).</li>
+              <li>Pick <strong>EVEN</strong> or <strong>ODD</strong>.</li>
+              <li>
+                The contract computes a pseudo-random result using block data.
+                If you win, you receive 2× your net VIN sent in.
+              </li>
+              <li>
+                All VIN used for losing bets stays inside the contract forever,
+                making VIN scarcer over time.
+              </li>
+            </ol>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-left">
+        <span>GameVinMon · 100M VIN max supply · Got MON? Get VIN.</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/gamevinmon" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a href="https://x.com/GameVinMon" target="_blank" rel="noopener noreferrer">
+          X (Twitter)
+        </a>
+        <a href="https://t.me/gamevinmon" target="_blank" rel="noopener noreferrer">
+          Telegram
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
