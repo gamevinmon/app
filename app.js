@@ -1056,22 +1056,23 @@
   }
 
   function initSwapEvents() {
-    const tabVinToMon = $("tabVinToMon");
-    const tabMonToVin = $("tabMonToVin");
-    const fromInput = $("swapFromAmount");
-    const maxBtn = $("swapMaxButton");
-    const actionBtn = $("swapActionButton");
+   const tabVinToMon = $("tabVinToMon");
+   const tabMonToVin = $("tabMonToVin");
+   const fromInput = $("swapFromAmount");
+   const maxBtn = $("swapMaxButton");
+   const actionBtn = $("swapActionButton");
 
-    if (tabVinToMon)
-      tabVinToMon.addEventListener("click", () => setSwapDirection("vinToMon"));
-    if (tabMonToVin)
-      tabMonToVin.addEventListener("click", () => setSwapDirection("monToVin"));
-    if (fromInput) fromInput.addEventListener("input", () => updateSwapToAmount());
-    if (maxBtn) maxBtn.addEventListener("click", setSwapMax);
-    if (actionBtn) actionBtn.addEventListener("click", onSwapAction);
+   if (tabVinToMon)
+     tabVinToMon.addEventListener("click", () => setSwapDirection("vinToMon"));
+   if (tabMonToVin)
+     tabMonToVin.addEventListener("click", () => setSwapDirection("monToVin"));
+   if (fromInput) fromInput.addEventListener("input", () => updateSwapToAmount());
+   if (maxBtn) maxBtn.addEventListener("click", setSwapMax);
+   if (actionBtn) actionBtn.addEventListener("click", onSwapAction);
 
-    setSwapDirection("vinToMon");
-  }
+   setSwapDirection("vinToMon");
+}
+
 
   function initDiceEvents() {
     const approveBtn = $("diceApproveButton");
