@@ -15,7 +15,8 @@
 ---
 
 ## 🚀 Live dApp  
-👉 **https://gamevinmon.github.io/app**
+👉 **[https://gamevinmon.github.io/app](https://gamevinmon.github.io/app)**
+👉 **IPFS Link: https://ipfs.io/ipfs/bafybeifxj5uyj4et5ffjhkwkrymvoferxisnzkkbu4cuf7urqu5rt6lkly**
 
 ---
 
@@ -26,16 +27,15 @@
 - Auto balance detection  
 - MAX button  
 - Approve + Swap  
-- Uses swap contract:
-0xCdce3485752E7a7D4323f899FEe152D9F27e890B
-
+- Uses swap contract:  
+`0xCdce3485752E7a7D4323f899FEe152D9F27e890B`
 
 ### 🎲 On-chain Dice Game  
 - Bet **VIN** on Even/Odd  
 - 100% on-chain randomness (blockhash)  
 - Last result + History list  
-- Dice contract:
-0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f
+- Dice contract:  
+`0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f`
 
 ### 💲 VIN price in USD  
 Real-time price via CoinGecko API  
@@ -52,28 +52,21 @@ Real-time price via CoinGecko API
 
 | Type | Address | Explorer |
 |------|---------|----------|
-| VIN Token | `0x09166bFA4a40BAbC19CCCEc6A6154d9c058098EC` | https://monadvision.com/token/0x09166bFA4a40BAbC19CCCEc6A6154d9c058098EC |
-| Swap VIN/MON | `0xCdce3485752E7a7D4323f899FEe152D9F27e890B` | https://monadvision.com/address/0xCdce3485752E7a7D4323f899FEe152D9F27e890B |
-| Dice Game | `0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f` | https://monadvision.com/address/0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f |
+| VIN Token | `0x09166bFA4a40BAbC19CCCEc6A6154d9c058098EC` | [Link](https://monadvision.com/token/0x09166bFA4a40BAbC19CCCEc6A6154d9c058098EC) |
+| Swap VIN/MON | `0xCdce3485752E7a7D4323f899FEe152D9F27e890B` | [Link](https://monadvision.com/address/0xCdce3485752E7a7D4323f899FEe152D9F27e890B) |
+| Dice Game | `0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f` | [Link](https://monadvision.com/address/0xE9Ed2c2987da0289233A1a1AE24438A314Ad6B2f) |
 
 ---
 
 # 🧩 Project Structure
 
-app/
-├── index.html
-├── style.css
-├── app.js
-├── README.md
-├── mota.md
-├── vinlogo.png
-├── vin24.png
-├── mon24.png
-├── logo64.png
-├── logo128.png
-├── ContractABI_VinMonSwap.json
-├── VinMonDice_ContractABI.json
-├── VINToken_ContractABI.json
+app/  
+├── index.html  
+├── style.css  
+├── app.js  
+├── README.md  
+├── vinlogo.png  
+├── logo128.png  
 
 ---
 
@@ -87,10 +80,10 @@ app/
 
 ---
 
-# 🌐 Community
-- 🐦 Twitter: https://x.com/gamevinmon  
-- 💬 Telegram: https://t.me/gamevinmon  
-- 💻 GitHub: https://github.com/gamevinmon  
+# 🌐 Community  
+- 🐦 **Twitter**: [https://x.com/gamevinmon](https://x.com/gamevinmon)  
+- 💬 **Telegram**: [https://t.me/gamevinmon](https://t.me/gamevinmon)  
+- 💻 **GitHub**: [https://github.com/gamevinmon](https://github.com/gamevinmon)  
 
 ---
 
