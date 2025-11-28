@@ -19,7 +19,7 @@
   const VIN_DECIMALS = 18;
   const MON_DECIMALS = 18;
 
-  // Approve tối đa cho Dice
+  // Approve max for Dice
   const DICE_APPROVE_AMOUNT = ethers.utils.parseUnits("10000000", VIN_DECIMALS);
 
   // ===== Minimal ABIs =====
