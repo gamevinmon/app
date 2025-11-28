@@ -256,7 +256,7 @@
         </div>
       </section>
 
-      <!-- DICE SCREEN -->
+            <!-- DICE SCREEN -->
       <section class="screen" id="dice-screen">
         <div class="screen-header">
           <h1>Dice Game (VIN)</h1>
@@ -269,6 +269,28 @@
 
         <div class="dice-layout">
           <div class="dice-card">
+            <!-- Player info inside Dice card -->
+            <div class="dice-player-summary">
+              <div class="dice-summary-row">
+                <span class="dice-summary-label">Wallet</span>
+                <span class="dice-summary-value" id="diceWalletAddressShort">
+                  Not connected
+                </span>
+              </div>
+              <div class="dice-summary-row">
+                <span class="dice-summary-label">VIN Balance</span>
+                <span class="dice-summary-value" id="diceVinBalance">
+                  -
+                </span>
+              </div>
+              <div class="dice-summary-row">
+                <span class="dice-summary-label">MON Balance</span>
+                <span class="dice-summary-value" id="diceMonBalance">
+                  -
+                </span>
+              </div>
+            </div>
+
             <div class="dice-field">
               <label for="diceBetAmount" class="dice-label">Bet Amount (VIN)</label>
               <div class="dice-input-row">
@@ -317,6 +339,21 @@
               </div>
             </div>
 
+            <!-- Visual: orb + 4 coins -->
+            <div class="dice-visual" id="diceVisual">
+              <div class="dice-orb"></div>
+              <div class="dice-coins">
+                <span class="dice-coin dice-coin-white"></span>
+                <span class="dice-coin dice-coin-red"></span>
+                <span class="dice-coin dice-coin-white"></span>
+                <span class="dice-coin dice-coin-red"></span>
+              </div>
+              <div class="dice-visual-caption">
+                The 4 coins are just a visual effect. The real Even/Odd result
+                is computed on-chain from block data.
+              </div>
+            </div>
+
             <button class="btn btn-primary btn-play" id="dicePlayButton">
               Play Dice
             </button>
@@ -349,6 +386,16 @@
               Refresh Last Game
             </button>
 
+            <div class="dice-pool-box">
+              <div class="dice-pool-row">
+                <span class="last-label">Reward Pool:</span>
+                <span class="last-value" id="dicePoolVin">-</span>
+              </div>
+              <p class="dice-pool-note">
+                This is the VIN bankroll in the Dice contract used to pay winners.
+              </p>
+            </div>
+
             <p class="info-note">
               All game results are on-chain. You can verify them through the
               Monad block explorer using your wallet address and transaction
@@ -357,6 +404,7 @@
           </aside>
         </div>
       </section>
+
     </main>
 
     <!-- Footer -->
