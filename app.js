@@ -407,34 +407,40 @@
 
   // ===== Swap Logic =====
   function updateSwapDirectionUI() {
-    const tabVinToMon = $("tabVinToMon");
-    const tabMonToVin = $("tabMonToVin");
+   const tabVinToMon = $("tabVinToMon");
+   const tabMonToVin = $("tabMonToVin");
 
-    if (tabVinToMon && tabMonToVin) {
-      tabVinToMon.classList.remove("swap-tab-active");
-      tabMonToVin.classList.remove("swap-tab-active");
-      if (swapDirection === "vinToMon") tabVinToMon.classList.add("swap-tab-active");
-      else tabMonToVin.classList.add("swap-tab-active");
-    }
+   // Reset active class
+   if (tabVinToMon) tabVinToMon.classList.remove("swap-tab-active");
+   if (tabMonToVin) tabMonToVin.classList.remove("swap-tab-active");
 
-    const fromToken = $("swapFromToken");
-    const toToken = $("swapToToken");
-    const rateLabel = $("swapRateLabel");
+   // Set active class based on the swap direction
+   if (swapDirection === "vinToMon") {
+     if (tabVinToMon) tabVinToMon.classList.add("swap-tab-active");
+   } else {
+     if (tabMonToVin) tabMonToVin.classList.add("swap-tab-active");
+   }
 
-    if (swapDirection === "vinToMon") {
-      if (fromToken) fromToken.textContent = "VIN";
-      if (toToken) toToken.textContent = "MON";
-    } else {
-      if (fromToken) fromToken.textContent = "MON";
-      if (toToken) toToken.textContent = "VIN";
-    }
-    if (rateLabel) {
-      rateLabel.textContent = "Rate: 1 VIN = 1 MON (fixed)";
-    }
+   const fromToken = $("swapFromToken");
+   const toToken = $("swapToToken");
+   const rateLabel = $("swapRateLabel");
 
-    updateSwapBalanceLabels();
-    updateSwapToAmount();
-  }
+   // Update the text content of the swap labels
+   if (swapDirection === "vinToMon") {
+     if (fromToken) fromToken.textContent = "VIN";
+     if (toToken) toToken.textContent = "MON";
+   } else {
+     if (fromToken) fromToken.textContent = "MON";
+     if (toToken) toToken.textContent = "VIN";
+   }
+   if (rateLabel) {
+     rateLabel.textContent = "Rate: 1 VIN = 1 MON (fixed)";
+   }
+
+   updateSwapBalanceLabels();
+   updateSwapToAmount();
+}
+
 
   function setSwapDirection(dir) {
     swapDirection = dir;
