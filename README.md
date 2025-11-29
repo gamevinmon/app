@@ -16,7 +16,7 @@
 
 ## 🚀 Live dApp  
 👉 **[https://gamevinmon.github.io/app](https://gamevinmon.github.io/app)**
-👉 **IPFS Link: https://ipfs.io/bafybeifp5oka2nqvcv24yd23pfm2pasil3mzzjk3ng472j3gpqo3uq5kva**
+👉 **IPFS Link: https://ipfs.io/ipfs/bafybeifp5oka2nqvcv24yd23pfm2pasil3mzzjk3ng472j3gpqo3uq5kva**
 
 ---
 
