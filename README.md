@@ -23,7 +23,7 @@
 # 🎯 Features
 
 ### 🔄 Swap VIN ↔ MON  
-- Fixed rate: **1 VIN = 1 MON**(only while the pool still has liquidity)
+- Fixed rate: **1 VIN = 1 MON** (only while the pool still has liquidity)
 - Auto balance detection  
 - MAX button  
 - Approve + Swap  
