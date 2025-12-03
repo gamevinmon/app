@@ -1113,3 +1113,11 @@ body {
     margin-bottom: 0.4rem;
   }
 }
+/* ==== Force show VIN price on mobile ==== */
+@media (max-width: 768px) {
+  .price-chip {
+    display: inline-flex;   /* hiện lại thay vì display:none */
+    font-size: 0.75rem;     /* chữ nhỏ hơn một chút cho đỡ chật */
+    padding: 0.22rem 0.5rem;
+  }
+}
